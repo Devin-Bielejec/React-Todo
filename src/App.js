@@ -6,18 +6,25 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
+      currentTask: "",
       toDo: []
     };
   }
 
   addToDoHandler = (event) => {
-    const thisTask = event.target.value;
+    console.log('hi');
+    event.preventDefault();
+    console.log(event);    
     const thisId = Date.now();
     const thisCompleted = false;
     this.setState(
-      {toDo: [...this.state.toDo, {task: thisTask, id: thisId, completed: thisCompleted}]}
+      {toDo: [...this.state.toDo, {task: this.state.currentTask, id: thisId, completed: thisCompleted}]}
       );
     console.log("The state is", this.state);
+  };
+
+  onInputChange = (event) => {
+    this.setState({currentTask: event.target.value});
   };
 
   // you will need a place to store your state in this component.
@@ -27,7 +34,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <FormComponent addToDoHandler={this.addToDoHandler}/>
+        <FormComponent onInputChange={this.onInputChange}addToDoHandler={this.addToDoHandler}/>
         {/* <ToDoList /> */}
       </div>
     );
