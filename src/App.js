@@ -7,8 +7,10 @@ class App extends React.Component {
     super();
     this.state = {
       currentTask: "",
-      toDo: []
+      toDo: 4
     };
+
+    console.log(this.state);
   }
 
   addToDoHandler = (event) => {
@@ -17,15 +19,16 @@ class App extends React.Component {
     console.log(event);    
     const thisId = Date.now();
     const thisCompleted = false;
-    this.setState(
-      {toDo: [...this.state.toDo, {task: this.state.currentTask, id: thisId, completed: thisCompleted}]}
-      );
+    console.log(this.state.toDo);
+    this.setState({currentTask: "Chicken"});
     console.log("The state is", this.state);
   };
 
   onInputChange = (event) => {
     this.setState({currentTask: event.target.value});
   };
+
+  
 
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
