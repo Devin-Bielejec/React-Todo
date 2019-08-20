@@ -17,6 +17,7 @@ class App extends React.Component {
     this.setState(
       {toDo: [...this.state.toDo, {task: thisTask, id: thisId, completed: thisCompleted}]}
       );
+    console.log("The state is", this.state);
   };
 
   // you will need a place to store your state in this component.
@@ -26,7 +27,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <FormComponent />
+        <FormComponent addToDoHandler={this.addToDoHandler}/>
         {/* <ToDoList /> */}
       </div>
     );
