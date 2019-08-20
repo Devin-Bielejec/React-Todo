@@ -7,15 +7,27 @@ class App extends React.Component {
     super();
     this.state = {
       currentTask: "",
-      toDo: [{id: 3}]    
+      toDo: []    
     };
   }
 
-  addToDoHandler = (event) => {
+  clearCompleted = (event) => {
+    console.log('hi');
+    console.log(this.state.toDo);
+    console.log(this.state.toDo.filter(obj=>obj.completed===false));
+    this.setState(
+      {
+        toDo: [...this.state.toDo.filter(obj => obj.completed === false
+        )]
+      }
+    )
+  }
+
+  addToDo = (event) => {
     event.preventDefault();
     const thisId = Date.now();
-    const thisCompleted = false;
-    this.setState({toDo: [{
+    const thisCompleted = true;
+    this.setState({toDo: [...this.state.toDo, {
       id: thisId,
       completed: thisCompleted,
       task: this.state.currentTask
@@ -36,8 +48,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>{this.state.toDo[0].id}</h2>
-        <FormComponent onInputChange={this.onInputChange}addToDoHandler={this.addToDoHandler}/>
+        <h2>To Do List</h2>
+        <FormComponent clearCompleted={this.clearCompleted}
+        onInputChange={this.onInputChange}
+        addToDo={this.addToDo}/>
         {/* <ToDoList /> */}
       </div>
     );
