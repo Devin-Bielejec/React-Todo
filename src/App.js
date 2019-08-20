@@ -7,25 +7,25 @@ class App extends React.Component {
     super();
     this.state = {
       currentTask: "",
-      toDo: 4
+      toDo: [{id: 3}]    
     };
-
-    console.log(this.state);
   }
 
   addToDoHandler = (event) => {
-    console.log('hi');
     event.preventDefault();
-    console.log(event);    
     const thisId = Date.now();
     const thisCompleted = false;
-    console.log(this.state.toDo);
-    this.setState({currentTask: "Chicken"});
-    console.log("The state is", this.state);
+    this.setState({toDo: [{
+      id: thisId,
+      completed: thisCompleted,
+      task: this.state.currentTask
+    }]});
   };
 
   onInputChange = (event) => {
     this.setState({currentTask: event.target.value});
+    
+    console.log(this.state);
   };
 
   
@@ -36,7 +36,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>{this.state.toDo[0].id}</h2>
         <FormComponent onInputChange={this.onInputChange}addToDoHandler={this.addToDoHandler}/>
         {/* <ToDoList /> */}
       </div>
