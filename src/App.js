@@ -1,6 +1,6 @@
 import React from 'react';
 import FormComponent from "./components/TodoComponents/TodoForm";
-import ToDoList from "./components/TodoComponents/TodoList";
+import { ToDoList } from "./components/TodoComponents/TodoList";
 
 class App extends React.Component {
   constructor(){
@@ -49,7 +49,7 @@ class App extends React.Component {
         <FormComponent clearCompleted={this.clearCompleted}
         onInputChange={this.onInputChange}
         addToDo={this.addToDo}/>
-        {/* <ToDoList /> */}
+        <ToDoList toDoList={this.state.toDo}/>
       </div>
     );
   }
