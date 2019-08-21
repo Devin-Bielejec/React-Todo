@@ -12,13 +12,10 @@ class App extends React.Component {
   }
 
   clearCompleted = (event) => {
-    console.log('hi');
-    console.log(this.state.toDo);
-    console.log(this.state.toDo.filter(obj=>obj.completed===false));
     this.setState(
       {
-        toDo: [...this.state.toDo.filter(obj => obj.completed === false
-        )]
+        toDo: this.state.toDo.filter(obj => obj.completed === false
+        )
       }
     )
   }
@@ -26,7 +23,7 @@ class App extends React.Component {
   addToDo = (event) => {
     event.preventDefault();
     const thisId = Date.now();
-    const thisCompleted = true;
+    const thisCompleted = false;
     this.setState({toDo: [...this.state.toDo, {
       id: thisId,
       completed: thisCompleted,
