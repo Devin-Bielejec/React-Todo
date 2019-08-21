@@ -29,12 +29,11 @@ class App extends React.Component {
       completed: thisCompleted,
       task: this.state.currentTask
     }]});
+    event.target.value = "";
   };
 
   onInputChange = (event) => {
     this.setState({currentTask: event.target.value});
-    
-    console.log(this.state);
   };
 
   
