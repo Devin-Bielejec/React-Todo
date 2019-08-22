@@ -4,6 +4,7 @@ import React from "react";
 import { ToDoComponent } from "./Todo";
 
 const ToDoList = (props) => {
+    console.log(`The following to do list is being rendered`, props.toDoList);
     return(
         <ul>
             {props.toDoList.map( toDoItem => {

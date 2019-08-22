@@ -12,20 +12,21 @@ class App extends React.Component {
   }
 
   clearCompleted = (event) => {
+    console.log(this.state);
     this.setState(
       {
         toDo: this.state.toDo.filter(obj => obj.completed === false
         )
       }
     )
+    console.log(this.state);
   }
 
   toggleCompleted = (event) => {
     const currentId = event.target.id;
     
-    //Toggle line-through
+    //Toggle line-through and set value of completed for setting state below
     let completedValue = true;
-    console.log(event.target.style.textDecoration === "line-through");
     if (event.target.style.textDecoration !== "line-through") {
       let completedValue = true;
       event.target.style.textDecoration = "line-through";
@@ -37,9 +38,7 @@ class App extends React.Component {
     this.setState(function () {
       //Find object in state
       let currentToDoItem = this.state.toDo.filter( obj => obj.id.toString() === currentId );
-      console.log(currentToDoItem);
       currentToDoItem[0].completed = completedValue;
-      console.log("This state inside of setState is", this.state);
       return this.state;
     })
   }
@@ -49,19 +48,16 @@ class App extends React.Component {
     const thisId = Date.now();
     const thisCompleted = false;
 
+    const taskValue = document.querySelector("form input").value;
     this.setState({toDo: [...this.state.toDo, {
       id: thisId,
       completed: thisCompleted,
-      task: this.state.currentTask
+      task: taskValue
     }]});
 
     //clear the text field
     document.querySelector("form").reset();
     
-  };
-
-  onInputChange = (event) => {
-    this.setState({currentTask: event.target.value});
   };
 
   // you will need a place to store your state in this component.
