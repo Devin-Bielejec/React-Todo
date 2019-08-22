@@ -21,19 +21,17 @@ class App extends React.Component {
   }
 
   removeToDo = (event) => {
+    const currentId = event.target.id;
     //Shows the item as strucken through
     event.target.style.textDecoration = "line-through";
-
-    //Find object in state
-    let currentToDoItem = this.state.toDo.filter( obj => obj.id.toString() === event.target.id );
-    currentToDoItem.completed = true;
-
+    console.log(this.state.toDo);
     this.setState(function () {
-      let currentState = this.state.toDo;
-
-      
-      
-      return stateObject;
+      //Find object in state
+      let currentToDoItem = this.state.toDo.filter( obj => obj.id.toString() === currentId );
+      console.log(currentToDoItem);
+      currentToDoItem[0].completed = true;
+      console.log("This state inside of setState is", this.state);
+      return this.state;
     })
   }
 
