@@ -21,13 +21,27 @@ class App extends React.Component {
   }
 
   removeToDo = (event) => {
-    event.target.hidden = true;
+    //Shows the item as strucken through
+    event.target.style.textDecoration = "line-through";
+
+    //Find object in state
+    let currentToDoItem = this.state.toDo.filter( obj => obj.id.toString() === event.target.id );
+    currentToDoItem.completed = true;
+
+    this.setState(function () {
+      let currentState = this.state.toDo;
+
+      
+      
+      return stateObject;
+    })
   }
 
   addToDo = (event) => {
     event.preventDefault();
     const thisId = Date.now();
     const thisCompleted = false;
+
     this.setState({toDo: [...this.state.toDo, {
       id: thisId,
       completed: thisCompleted,

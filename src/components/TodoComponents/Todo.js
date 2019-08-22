@@ -7,9 +7,8 @@ const ToDoItem = styled.li`
     }
 `
 const ToDoComponent = (props) => {
-    console.log(props.toDoItem.id);
     return (
-        <ToDoItem id={props.toDoItem.id} completed={props.toDoItem.completed.toString()} onClick={props.removeToDo}>{props.toDoItem.task}</ToDoItem>
+        <ToDoItem id={props.toDoItem.id} onClick={props.removeToDo}>{props.toDoItem.task}</ToDoItem>
     )
 }
 
