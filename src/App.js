@@ -6,6 +6,12 @@ import styled from "styled-components";
 const Body = styled.body`
   width: 30%;
   margin: 0 auto;
+  height: 100%;
+`
+
+const Title = styled.h1`
+  text-align: center;
+  font-size: 4rem;
 `
 class App extends React.Component {
   constructor(){
@@ -69,7 +75,7 @@ class App extends React.Component {
   render() {
     return (
       <Body>
-        <h2>To Do List</h2>
+        <Title>To Do List</Title>
         <FormComponent clearCompleted={this.clearCompleted}
         onInputChange={this.onInputChange}
         addToDo={this.addToDo}/>
