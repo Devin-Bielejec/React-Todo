@@ -8,7 +8,9 @@ const ToDoList = (props) => {
     return(
         <ul>
             {props.toDoList.map( toDoItem => {
-                return (<ToDoComponent toDoItem={toDoItem} toggleCompleted={props.toggleCompleted}/>)
+                let lineThrough = "line-through";
+                toDoItem.completed === true ? lineThrough = "line-through" : lineThrough = "none";
+                return (<ToDoComponent toDoItem={toDoItem} toggleCompleted={props.toggleCompleted} lineThrough={lineThrough}/>)
             })}
         </ul>
     )

@@ -6,7 +6,7 @@ const FormComponent = (props) => {
             <input placeholder="Your favorite to do list task"
             onChange={props.onInputChange}></input>
             <button className="add" type="submit">Add</button>
-            <button className="clear" onClick={props.clearCompleted}>
+            <button className="clear" type="button" onClick={props.clearCompleted}>
                 Clear Completed
             </button>
         </form>

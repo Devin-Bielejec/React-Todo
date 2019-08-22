@@ -8,7 +8,7 @@ const ToDoItem = styled.li`
 `
 const ToDoComponent = (props) => {
     return (
-        <ToDoItem id={props.toDoItem.id} onClick={props.toggleCompleted}>{props.toDoItem.task}</ToDoItem>
+        <ToDoItem id={props.toDoItem.id} onClick={props.toggleCompleted} style={{textDecoration:props.lineThrough}}>{props.toDoItem.task}</ToDoItem>
     )
 }
 

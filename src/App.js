@@ -19,20 +19,20 @@ class App extends React.Component {
         )
       }
     )
-    console.log(this.state);
   }
 
   toggleCompleted = (event) => {
     const currentId = event.target.id;
     
+    const currentElement = event.target;
+    console.log(currentElement);
+
     //Toggle line-through and set value of completed for setting state below
     let completedValue = true;
-    if (event.target.style.textDecoration !== "line-through") {
+    if (currentElement.style.textDecoration !== "line-through") {
       let completedValue = true;
-      event.target.style.textDecoration = "line-through";
     } else {
-      let completedValue = true;
-      event.target.style.textDecoration = "none";
+      let completedValue = false;
     }
 
     this.setState(function () {
@@ -44,6 +44,7 @@ class App extends React.Component {
   }
 
   addToDo = (event) => {
+    console.log("here");
     event.preventDefault();
     const thisId = Date.now();
     const thisCompleted = false;
@@ -60,9 +61,6 @@ class App extends React.Component {
     
   };
 
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
       <div>
