@@ -7,7 +7,7 @@ const ToDoList = (props) => {
     return(
         <ul>
             {props.toDoList.map( toDoItem => {
-                return (<ToDoComponent toDoItem={toDoItem} removeToDo={props.removeToDo}/>)
+                return (<ToDoComponent toDoItem={toDoItem} toggleCompleted={props.toggleCompleted}/>)
             })}
         </ul>
     )
