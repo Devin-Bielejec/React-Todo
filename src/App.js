@@ -20,6 +20,10 @@ class App extends React.Component {
     )
   }
 
+  removeToDo = (event) => {
+    event.target.hidden = true;
+  }
+
   addToDo = (event) => {
     event.preventDefault();
     const thisId = Date.now();
@@ -49,7 +53,7 @@ class App extends React.Component {
         <FormComponent clearCompleted={this.clearCompleted}
         onInputChange={this.onInputChange}
         addToDo={this.addToDo}/>
-        <ToDoList toDoList={this.state.toDo}/>
+        <ToDoList toDoList={this.state.toDo} removeToDo={this.removeToDo}/>
       </div>
     );
   }
