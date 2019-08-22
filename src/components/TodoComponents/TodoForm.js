@@ -2,7 +2,7 @@ import React from "react";
 
 const FormComponent = (props) => {
     return(
-        <form onSubmit={props.addToDo} >
+        <form onSubmit={props.addToDo}>
             <input placeholder="Your favorite to do list task"
             onChange={props.onInputChange}></input>
             <button className="add" type="submit">Add</button>

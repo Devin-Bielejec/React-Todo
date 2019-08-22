@@ -29,14 +29,15 @@ class App extends React.Component {
       completed: thisCompleted,
       task: this.state.currentTask
     }]});
-    event.target.value = "";
+
+    //clear the text field
+    document.querySelector("form").reset();
+    
   };
 
   onInputChange = (event) => {
     this.setState({currentTask: event.target.value});
   };
-
-  
 
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
