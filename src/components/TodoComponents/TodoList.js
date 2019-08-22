@@ -6,7 +6,7 @@ import { ToDoComponent } from "./Todo";
 const ToDoList = (props) => {
     console.log(`The following to do list is being rendered`, props.toDoList);
     return(
-        <ul>
+        <ul type="none">
             {props.toDoList.map( toDoItem => {
                 let lineThrough = "line-through";
                 toDoItem.completed === true ? lineThrough = "line-through" : lineThrough = "none";

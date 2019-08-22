@@ -1,7 +1,12 @@
 import React from 'react';
 import FormComponent from "./components/TodoComponents/TodoForm";
 import { ToDoList } from "./components/TodoComponents/TodoList";
+import styled from "styled-components";
 
+const Body = styled.body`
+  width: 30%;
+  margin: 0 auto;
+`
 class App extends React.Component {
   constructor(){
     super();
@@ -63,13 +68,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <Body>
         <h2>To Do List</h2>
         <FormComponent clearCompleted={this.clearCompleted}
         onInputChange={this.onInputChange}
         addToDo={this.addToDo}/>
         <ToDoList toDoList={this.state.toDo} toggleCompleted={this.toggleCompleted}/>
-      </div>
+      </Body>
     );
   }
 };
